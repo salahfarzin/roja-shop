@@ -1,0 +1,10 @@
+services:
+  go:
+    build:
+      context: .
+    container_name: go-roja-shop
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/go/src/github.com/salahfarzin/roja-shop
+    working_dir: /go/src/github.com/salahfarzin/roja-shop

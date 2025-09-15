@@ -1,0 +1,208 @@
+[
+	{
+		"id": "fd1b00b7-ed5e-43e8-82f3-0ea8dcb28932",
+		"image": "images/product1.jpg",
+		"brand": "رۆژا",
+		"name": "کراسی زەماۆن و هەڵپەرین",
+        "inventory": 12,
+		"price": 420,
+		"oldPrice": 540,
+		"discount": 20,
+		"description": "کراسی جوان کە زۆر جوانە و خۆشەویستە، لەگەڵ کەسایەتییەکی تایبەتی خۆی هەیە کە بەردەوام دەبێتەوە لە هەر شوێنێک و کاتێک.",
+        "details": {
+            "Materials": "100% cotton, and lining Structured",
+            "Adjustable cotton strap closure": "",
+            "High-quality embroidery stitching": "",
+            "Head circumference": "21” - 24” / 54-62 cm",
+            "Embroidery stitching": "",
+            "One size fits most": ""
+        },
+        "styleNotes": {
+            "Style": "Casual, Sporty, Streetwear",
+            "Pattern": "Solid",
+            "Color": "Black",
+            "Season": "Spring, Summer, Fall",
+            "Occasion": "Outdoor activities, Daily wear"
+        }
+	},
+	{
+		"id": "ee7bc507-af9c-421d-9779-c2a1bacad6ea",
+		"image": "images/product2.jpg",
+		"brand": "رۆژا",
+		"name": "کراس کورسانی",
+        "inventory": 1,
+		"price": 800,
+		"description": "کراسی جوان کە زۆر جوانە و خۆشەویستە، لەگەڵ کەسایەتییەکی تایبەتی خۆی هەیە کە بەردەوام دەبێتەوە لە هەر شوێنێک و کاتێک.",
+        "details": {
+            "Materials": "100% cotton, and lining Structured",
+            "Adjustable cotton strap closure": "",
+            "High-quality embroidery stitching": "",
+            "Head circumference": "21” - 24” / 54-62 cm",
+            "Embroidery stitching": "",
+            "One size fits most": ""
+        },
+        "styleNotes": {
+            "Style": "Casual, Sporty, Streetwear",
+            "Pattern": "Solid",
+            "Color": "Black",
+            "Season": "Spring, Summer, Fall",
+            "Occasion": "Outdoor activities, Daily wear"
+        }
+	},
+	{
+		"id": "ff47672e-951c-41df-9467-e6d4ed21774b",
+		"image": "images/product3.jpg",
+		"brand": "رۆژا",
+		"name": "کراس سەقزی",
+        "inventory": 0,
+		"price": 390.36,
+		"oldPrice": 650.62,
+		"discount": 40,
+		"description": "کراسی جوان کە زۆر جوانە و خۆشەویستە، لەگەڵ کەسایەتییەکی تایبەتی خۆی هەیە کە بەردەوام دەبێتەوە لە هەر شوێنێک و کاتێک.",
+		"details": {
+			"Materials": "100% cotton, and lining Structured",
+			"Adjustable cotton strap closure": "",
+			"High-quality embroidery stitching": "",
+			"Head circumference": "21” - 24” / 54-62 cm",
+			"Embroidery stitching": "",
+            "One size fits most": ""
+        },
+        "styleNotes": {
+            "Style": "Casual, Sporty, Streetwear",
+            "Pattern": "Solid",
+            "Color": "Black",
+            "Season": "Spring, Summer, Fall",
+            "Occasion": "Outdoor activities, Daily wear"
+        }
+	},
+	{
+		"id": "4c26cc20-1732-4ec9-bcd9-d5a08b384e44",
+		"image": "images/product4.jpg",
+		"brand": "رۆژا",
+		"name": "Green Poplin Ruched Front",
+        "inventory": 10,
+		"price": 1200.8,
+		"oldPrice": 1264,
+		"discount": 5,
+		"description": "کراسی جوان کە زۆر جوانە و خۆشەویستە، لەگەڵ کەسایەتییەکی تایبەتی خۆی هەیە کە بەردەوام دەبێتەوە لە هەر شوێنێک و کاتێک.",
+        "details": {
+            "Materials": "100% cotton, and lining Structured",
+            "Adjustable cotton strap closure": "",
+            "High-quality embroidery stitching": "",
+            "Head circumference": "21” - 24” / 54-62 cm",
+            "Embroidery stitching": "",
+            "One size fits most": ""
+        },
+        "styleNotes": {
+            "Style": "Casual, Sporty, Streetwear",
+            "Pattern": "Solid",
+            "Color": "Black",
+            "Season": "Spring, Summer, Fall",
+            "Occasion": "Outdoor activities, Daily wear"
+        }
+	},
+	{
+		"id": "f6bd9dcc-c951-4a19-ba2d-99ea81f4b839",
+		"image": "images/product5.jpg",
+		"brand": "رۆژا",
+		"name": "Green Poplin Ruched Front",
+        "inventory": 10,
+		"price": 1200.8,
+		"oldPrice": 1264,
+		"discount": 5,
+		"description": "کراسی جوان کە زۆر جوانە و خۆشەویستە، لەگەڵ کەسایەتییەکی تایبەتی خۆی هەیە کە بەردەوام دەبێتەوە لە هەر شوێنێک و کاتێک.",
+        "details": {
+            "Materials": "100% cotton, and lining Structured",
+            "Adjustable cotton strap closure": "",
+            "High-quality embroidery stitching": "",
+            "Head circumference": "21” - 24” / 54-62 cm",
+            "Embroidery stitching": "",
+            "One size fits most": ""
+        },
+        "styleNotes": {
+            "Style": "Casual, Sporty, Streetwear",
+            "Pattern": "Solid",
+            "Color": "Black",
+            "Season": "Spring, Summer, Fall",
+            "Occasion": "Outdoor activities, Daily wear"
+        }
+	},
+	{
+		"id": "68990b34-9d73-425e-b59b-ada0301f3aa9",
+		"image": "images/product1.jpg",
+		"brand": "رۆژا",
+		"name": "Green Poplin Ruched Front",
+        "inventory": 10,
+		"price": 1200.8,
+		"oldPrice": 1264,
+		"discount": 5,
+		"description": "کراسی جوان کە زۆر جوانە و خۆشەویستە، لەگەڵ کەسایەتییەکی تایبەتی خۆی هەیە کە بەردەوام دەبێتەوە لە هەر شوێنێک و کاتێک.",
+        "details": {
+            "Materials": "100% cotton, and lining Structured",
+            "Adjustable cotton strap closure": "",
+            "High-quality embroidery stitching": "",
+            "Head circumference": "21” - 24” / 54-62 cm",
+            "Embroidery stitching": "",
+            "One size fits most": ""
+        },
+        "styleNotes": {
+            "Style": "Casual, Sporty, Streetwear",
+            "Pattern": "Solid",
+            "Color": "Black",
+            "Season": "Spring, Summer, Fall",
+            "Occasion": "Outdoor activities, Daily wear"
+        }
+	},
+	{
+		"id": "58091875-e476-4f13-a8f0-099af5dca13c",
+		"image": "images/product2.jpg",
+		"brand": "رۆژا",
+		"name": "Green Poplin Ruched Front",
+        "inventory": 10,
+		"price": 1200.8,
+		"oldPrice": 1264,
+		"discount": 5,
+		"description": "کراسی جوان کە زۆر جوانە و خۆشەویستە، لەگەڵ کەسایەتییەکی تایبەتی خۆی هەیە کە بەردەوام دەبێتەوە لە هەر شوێنێک و کاتێک.",
+        "details": {
+            "Materials": "100% cotton, and lining Structured",
+            "Adjustable cotton strap closure": "",
+            "High-quality embroidery stitching": "",
+            "Head circumference": "21” - 24” / 54-62 cm",
+            "Embroidery stitching": "",
+            "One size fits most": ""
+        },
+        "styleNotes": {
+            "Style": "Casual, Sporty, Streetwear",
+            "Pattern": "Solid",
+            "Color": "Black",
+            "Season": "Spring, Summer, Fall",
+            "Occasion": "Outdoor activities, Daily wear"
+        }
+	},
+	{
+		"id": "ce88717f-0150-4384-8ed5-a015a27d0545",
+		"image": "images/product3.jpg",
+		"brand": "رۆژا",
+		"name": "Green Poplin Ruched Front",
+        "inventory": 10,
+		"price": 1200.8,
+		"oldPrice": 1264,
+		"discount": 5,
+		"description": "کراسی جوان کە زۆر جوانە و خۆشەویستە، لەگەڵ کەسایەتییەکی تایبەتی خۆی هەیە کە بەردەوام دەبێتەوە لە هەر شوێنێک و کاتێک.",
+        "details": {
+            "Materials": "100% cotton, and lining Structured",
+            "Adjustable cotton strap closure": "",
+            "High-quality embroidery stitching": "",
+            "Head circumference": "21” - 24” / 54-62 cm",
+            "Embroidery stitching": "",
+            "One size fits most": ""
+        },
+        "styleNotes": {
+            "Style": "Casual, Sporty, Streetwear",
+            "Pattern": "Solid",
+            "Color": "Black",
+            "Season": "Spring, Summer, Fall",
+            "Occasion": "Outdoor activities, Daily wear"
+        }
+	}
+]

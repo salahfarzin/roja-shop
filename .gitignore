@@ -1,0 +1,15 @@
+tmp
+.devcontainer
+.fleet
+*.log
+.DS_Store
+storage/logs/*
+
+.env
+public/uploads
+storage/uploads
+storage/database/*.db
+database/migrations/*.sql
+node_modules
+
+__debug__*
