@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
 
@@ -32,7 +33,7 @@ func NewProduct(service services.Product) Product {
 func (p *product) Index(ctx *fiber.Ctx) error {
 	products, err := p.service.GetAll()
 	if err != nil {
-		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "could not fetch products from database"})
+		return errorResponse(ctx, fiber.StatusInternalServerError, "could not fetch products from database")
 	}
 
 	serverURL := ctx.BaseURL()
@@ -53,7 +54,9 @@ func (p *product) Index(ctx *fiber.Ctx) error {
 func (p *product) Store(ctx *fiber.Ctx) error {
 	// Parse form fields
 	title := ctx.FormValue("title")
+	discountStr := ctx.FormValue("discount")
 	priceStr := ctx.FormValue("price")
+	oldPriceStr := ctx.FormValue("oldPrice")
 	brand := ctx.FormValue("brand")
 	inventoryStr := ctx.FormValue("inventory")
 	description := ctx.FormValue("description")
@@ -64,16 +67,21 @@ func (p *product) Store(ctx *fiber.Ctx) error {
 	_ = ctx.BodyParser(&styleNotes) // Optionally parse from form or JSON
 
 	if title == "" || priceStr == "" {
-		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "title and price are required"})
+		return errorResponse(ctx, fiber.StatusBadRequest, "title and price are required")
 	}
 
 	price, _ := strconv.ParseFloat(priceStr, 64)
+	oldPrice, _ := strconv.ParseFloat(oldPriceStr, 64)
 	inventory, _ := strconv.Atoi(inventoryStr)
+	discount, _ := strconv.ParseFloat(discountStr, 64)
 
 	// Handle image upload
 	file, _, err := services.UploadService.SaveFile(ctx, "image", configs.New())
 	if err != nil && err != fiber.ErrUnprocessableEntity {
-		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "failed to save image"})
+		if errors.Is(err, services.ErrNotImage) {
+			return errorResponse(ctx, fiber.StatusBadRequest, err.Error())
+		}
+		return errorResponse(ctx, fiber.StatusInternalServerError, "failed to save image")
 	}
 
 	productID := uuid.New().String()
@@ -83,35 +91,42 @@ func (p *product) Store(ctx *fiber.Ctx) error {
 		Title:       title,
 		Inventory:   inventory,
 		Price:       price,
+		Discount:    discount,
+		OldPrice:    oldPrice,
 		Description: description,
 		Details:     details,
 		StyleNotes:  styleNotes,
+		File:        file,
 	}
 
-	id, err := p.service.Store(product, file)
+	_, err = p.service.Store(product, file)
 	if err != nil {
-		return ctx.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "failed to store product"})
+		return errorResponse(ctx, fiber.StatusInternalServerError, "failed to store product")
 	}
 
 	return ctx.Status(fiber.StatusCreated).JSON(fiber.Map{
-		"message":    "product created",
-		"product_id": id,
-		"product":    product,
-		"file":       file,
+		"message": "product created",
+		"product": product,
 	})
 }
 
 func (p *product) Sell(ctx *fiber.Ctx) error {
 	var body map[string]any
 	if err := ctx.BodyParser(&body); err != nil {
-		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "invalid request body"})
+		return errorResponse(ctx, fiber.StatusBadRequest, "invalid request body")
 	}
 
 	uuid, ok := body["uuid"].(string)
 	if !ok || uuid == "" {
-		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "uuid is required"})
+		return errorResponse(ctx, fiber.StatusBadRequest, "uuid is required")
 	}
 
 	soldCount++
 	return ctx.JSON(fiber.Map{"message": "received", "uuid": uuid, "count": soldCount})
+}
+
+func errorResponse(ctx *fiber.Ctx, status int, msg string) error {
+	return ctx.Status(status).JSON(struct {
+		Error string `json:"message"`
+	}{Error: msg})
 }
