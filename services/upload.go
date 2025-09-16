@@ -1,6 +1,7 @@
 package services
 
 import (
+	"errors"
 	"os"
 	"path/filepath"
 	"time"
@@ -13,6 +14,7 @@ import (
 
 var (
 	UploadService Upload = &upload{}
+	ErrNotImage          = errors.New("only image files are allowed")
 )
 
 type Upload interface {
@@ -32,13 +34,24 @@ func (u *upload) SaveFile(ctx *fiber.Ctx, formField string, cfg *configs.Configs
 		return nil, "", err
 	}
 
-	os.MkdirAll(cfg.UploadPath, os.ModePerm)
-	ext := filepath.Ext(fileHeader.Filename)
+	// Only allow image uploads
+	contentType := fileHeader.Header.Get("Content-Type")
+	if contentType == "" || contentType[:6] != "image/" {
+		return nil, "", ErrNotImage
+	}
 
+	os.MkdirAll(cfg.UploadPath, os.ModePerm)
+	// Prevent path traversal by ignoring the original filename except for extension
+	ext := filepath.Ext(filepath.Base(fileHeader.Filename))
 	fileID := uuid.New().String()
 	filename := fileID + ext
 	destPath := filepath.Join(cfg.UploadPath, filename)
+
 	if err := ctx.SaveFile(fileHeader, destPath); err != nil {
+		return nil, "", err
+	}
+	// Set file permissions to 0644 (readable, not executable)
+	if err := os.Chmod(destPath, 0644); err != nil {
 		return nil, "", err
 	}
 
@@ -47,7 +60,7 @@ func (u *upload) SaveFile(ctx *fiber.Ctx, formField string, cfg *configs.Configs
 		ID:        fileID,
 		Name:      filename,
 		Path:      publicPath,
-		Type:      fileHeader.Header.Get("Content-Type"),
+		Type:      contentType,
 		CreatedAt: time.Now().Format(time.RFC3339),
 	}
 	return file, publicPath, nil
