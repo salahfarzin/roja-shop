@@ -2,6 +2,7 @@ package services
 
 import (
 	"errors"
+	"mime/multipart"
 	"os"
 	"path/filepath"
 	"time"
@@ -18,7 +19,7 @@ var (
 )
 
 type Upload interface {
-	SaveFile(ctx *fiber.Ctx, formField string, cfg *configs.Configs) (*types.File, string, error)
+	SaveFile(ctx *fiber.Ctx, fileHeader *multipart.FileHeader, cfg *configs.Configs) (*types.File, string, error)
 }
 
 type upload struct {
@@ -28,12 +29,7 @@ func NewUpload() Upload {
 	return &upload{}
 }
 
-func (u *upload) SaveFile(ctx *fiber.Ctx, formField string, cfg *configs.Configs) (*types.File, string, error) {
-	fileHeader, err := ctx.FormFile(formField)
-	if err != nil || fileHeader == nil {
-		return nil, "", err
-	}
-
+func (u *upload) SaveFile(ctx *fiber.Ctx, fileHeader *multipart.FileHeader, cfg *configs.Configs) (*types.File, string, error) {
 	// Only allow image uploads
 	contentType := fileHeader.Header.Get("Content-Type")
 	if contentType == "" || contentType[:6] != "image/" {
