@@ -12,4 +12,4 @@ storage/database/*.db
 database/migrations/*.sql
 node_modules
 
-__debug__*
+__debug_*
